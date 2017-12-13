@@ -25,13 +25,13 @@ This explains where what file is and what each file does.
 ### actions
 *object_name*_action.js: Has all the methods for the particaular object.
 This is where a contributor should write their logic when implementing new objects.
-###assets
+### assets
 Contains all the images used for the apparatus.
 
-##Making new objects
-*Add a suitable image for this object in ./assets directory. (transparent .png files are recommended)
+## Making new objects
+* Add a suitable image for this object in ./assets directory. (transparent .png files are recommended)
 
-*Add it's name in *lab.html* under the suitable subsection. This is where the user will click to bring the new object onto the workspace.
+* Add it's name in *lab.html* under the suitable subsection. This is where the user will click to bring the new object onto the workspace.
 ```
 <div id="collapse3" class="panel-collapse collapse">
 	<div class="panel-body">
@@ -44,14 +44,14 @@ Contains all the images used for the apparatus.
 </div>
 ```
 
-*Include it's methods' file, *newobjectname_action.js*
+* Include it's methods' file, *newobjectname_action.js*
 ```
 <script type="text/javascript" src="actions/testtube_action.js"></script>
 <script type="text/javascript" src="actions/thermometer_action.js"></script>
 <script type="text/javascript" src="actions/newobjectname_action.js"></script>
 ```
 
-*List it in *add_object.js*
+* List it in *add_object.js*
 ```
 $("#cat3opt5").click(function(){ //Object Name
 	$("#workspace")[0].innerHTML+='<div onclick="newobjectname_action('+idx+')" class="draggable drag-drop newobjectname" id='+idx+' style="height: 150px; position: relative; display: inline-block;" data-variable1="initial value" data-variable2="initial value"><img src="assets/newobject.png" height="150px"><div class="menu" id="newobject_action'+idx+'" style="z-index: 100; display: none; position: absolute; left: 100px; top: 10px"><div class="menu-header"><h6>New Object</h6></div><div class="menu-content"><ul><li id="method1'+idx+'">Method1</li><li id="method2'+idx+'">Method2</li><li id="close_newobject'+idx+'" style="color: #F44336">Close</li></ul></div></div></div>'
@@ -60,7 +60,7 @@ $("#cat3opt5").click(function(){ //Object Name
 })
 ```
 
-*Make changes in *enter.js* to handle interactions and object removal
+* Make changes in *enter.js* to handle interactions and object removal
 Include it in remove and removecross:
 ```
 interact('.remove').dropzone({
@@ -102,7 +102,7 @@ ondragleave: function (e) {
 			menu.style.display="none";
 		}
 ```
-*Write down it's methods in *newobjectname_action.js*
+* Write down it's methods in *newobjectname_action.js*
 Boilerplate:
 ```
 function newobject_action(newobject_idx)
