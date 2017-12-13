@@ -1,0 +1,144 @@
+<!-- Basic layout for the webpage. Doesn't have any of the lab elements or their actions coded into this section. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>R2</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="styles.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body style="width: 100%">
+<script
+	src="https://code.jquery.com/jquery-3.2.1.min.js"
+	integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+	crossorigin="anonymous"></script>
+<script type="text/javascript" src="http://code.interactjs.io/v1.2.9/interact.min.js"></script>
+
+<!-- Main Page -->
+<div style="display: table;width: 100%; height: 600px">
+	<div style="display: table-row;">
+		<div style="display: table-cell; width: 15%; height: 5%; vertical-align: top;" class="header"><h3 style="margin-top:10px"><strong>Inventory</strong></div>
+		<div style="display: table-cell; width: 1%; vertical-align: top;"></div>
+		<div style="display: table-cell; vertical-align: top;" class="header"><h3 style="margin-top: 10px"><strong>Workspace</strong></div>
+		<div style="display: table-cell; width: 1%; vertical-align: top;"></div>
+		<div style="display: table-cell; width: 15%; vertical-align: top;" class="header"><h3 style="margin-top: 10px"><strong>Help</strong></div>
+	</div>
+	<div style="display: table-row;">
+		<!-- Sidebar -->
+		<div style="display: table-cell; width: 15%; vertical-align: top;">
+			<div class="panel-group">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" href="#collapseroot1">Apparatus</a>
+						</h4>
+					</div>
+					<div id="collapseroot1" class="panel-collapse collapse">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a data-toggle="collapse" href="#collapse1">
+										<span class="glyphicon glyphicon-chevron-right"></span>Storage
+									</a>
+								</h4>
+							</div>
+						</div>
+						<div id="collapse1" class="panel-collapse collapse">
+							<div class="panel-body">
+								<p id="cat1opt1">Beaker</p>
+								<p id="cat1opt2">Conical Flask</p>
+								<p id="cat1opt3">Graduated Cylinder</p>
+								<p id="cat1opt4">Test Tube</p>
+							</div>
+						</div>
+
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a data-toggle="collapse" href="#collapse2"><span class="glyphicon glyphicon-chevron-right"></span>Analytical</a>
+								</h4>
+							</div>
+							<div id="collapse2" class="panel-collapse collapse">
+								<div class="panel-body">
+									<p id="cat2opt1">Thermometer</p>
+									<p id="cat2opt2">Balance</p>
+									<p id="cat2opt3">Microscope</p>
+								</div>
+							</div>
+						</div>
+						<!-- Check margin-top -->
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a data-toggle="collapse" href="#collapse3"><span class="glyphicon glyphicon-chevron-right"></span>Others</a>
+								</h4>
+							</div>
+							<div id="collapse3" class="panel-collapse collapse">
+								<div class="panel-body">
+									<p id="cat3opt1">Pipette</p>
+									<p id="cat3opt2">Spatula</p>
+									<p id="cat3opt3">Bunsen Burner</p>
+									<p id="cat3opt4">Magnetic Stirrer/Heater</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div> 
+		</div>
+		<div style="display: table-cell; width: 1%; vertical-align: top;"></div>
+		<!-- Workspace -->
+		<div style="display: table-cell;border: 1px solid black; vertical-align: top; position: relative;" id="workspace">
+			<div class="drag-drop remove" style="position: absolute; bottom: 0px; width: 50%; margin-left: 25%; height: 100px;"><img class="removecross" src="assets/close.svg" style="margin-left: 42%; height: 70px; margin-top: 15px; display: none"></div>
+		</div>
+		<div style="display: table-cell;"></div>
+		<div style="display: table-cell; position: relative">
+			<div class="panel-group">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" href="#properties" style="margin-bottom: 0px">Properties</a>
+						</h4>
+					</div>
+					<div id="properties" class="panel-collapse collapse"><strong>Please click on an object</strong></div>
+				</div>
+			</div>
+			<div class="panel-group">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" href="#methods">Methods</a>
+						</h4>
+					</div>
+					<div id="methods" class="panel-collapse collapse"><strong>Please click on an object</strong></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	var idx_max=0;
+</script>
+
+<script type="text/javascript" src="drag.js"></script>
+<script type="text/javascript" SRC="enter.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript" src="add_object.js"></script>
+<script type="text/javascript" src="cool.js"></script>
+<script type="text/javascript" src="actions/balance_action.js"></script>
+<script type="text/javascript" src="actions/beaker_action.js"></script>
+<script type="text/javascript" src="actions/burner_action.js"></script>
+<script type="text/javascript" src="actions/cylinder_action.js"></script>
+<script type="text/javascript" src="actions/flask_action.js"></script>
+<script type="text/javascript" src="actions/microscope_action.js"></script>
+<script type="text/javascript" src="actions/pipette_action.js"></script>
+<script type="text/javascript" src="actions/spatula_action.js"></script>
+<script type="text/javascript" src="actions/magnetic-stirrer_action.js"></script>
+<script type="text/javascript" src="actions/testtube_action.js"></script>
+<script type="text/javascript" src="actions/thermometer_action.js"></script>
+
+</body>
+</html>

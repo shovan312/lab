@@ -1,0 +1,93 @@
+* {
+	box-sizing: border-box;
+}
+
+img {
+	vertical-align: bottom;
+}
+
+body {
+	color: #5f6062;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.menu {
+	-webkit-box-shadow: 0px 0px 3px #26292e;
+	box-shadow: 0px 0px 3px #26292e;
+	margin: 10px auto;
+	/*width: 150px;*/
+}
+
+.menu .menu-header {
+	background: #65707f; /* Old browsers */
+	background: -moz-linear-gradient(top,  #65707f 0%, #4a5564 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#65707f), color-stop(100%,#4a5564)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #65707f 0%,#4a5564 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #65707f 0%,#4a5564 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #65707f 0%,#4a5564 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #65707f 0%,#4a5564 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#65707f', endColorstr='#4a5564',GradientType=0 ); /* IE6-9 */
+	background-color: #586272;
+	-webkit-border-radius: 5px 5px 0px 0px;
+	-moz-border-radius: 5px 5px 0px 0px;
+	border-radius: 5px 5px 0px 0px;
+	text-align: center;	
+}
+
+.header {
+	background: #65707f; /* Old browsers */
+	background: -moz-linear-gradient(top,  #65707f 0%, #4a5564 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#65707f), color-stop(100%,#4a5564)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #65707f 0%,#4a5564 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #65707f 0%,#4a5564 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #65707f 0%,#4a5564 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #65707f 0%,#4a5564 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#65707f', endColorstr='#4a5564',GradientType=0 ); /* IE6-9 */
+	background-color: #586272;
+	-webkit-border-radius: 5px 5px 0px 0px;
+	-moz-border-radius: 5px 5px 0px 0px;
+	border-radius: 5px 5px 0px 0px;
+	text-align: center;	
+	color: white;
+}
+
+.menu .menu-header {
+	color: #fff;
+	font-size: 0.8em;
+	text-transform: uppercase;
+}
+
+.menu-header {
+	padding: 1px;
+}
+
+.menu-content > ul {
+	text-align: center;
+	margin: 0;
+	padding: 0;
+}
+
+.menu .menu-content {
+	background-color: #fff;
+}
+
+.menu .menu-content ul {
+	list-style: none;	
+}
+
+.menu .menu-content ul li {
+	border-bottom: 1px solid #efeff0;
+	font-size: 0.7em;
+	padding: 10px 16px;
+}
+
+h3 {
+	margin-top: 6px;
+	margin-bottom: 6px;
+}
+
+.panel-group {
+	margin-bottom: 0px
+}
+
+}
