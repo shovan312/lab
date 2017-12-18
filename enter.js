@@ -1,7 +1,7 @@
 //interact.js file. Has appropriate actions attached to 'dragenter' and 'dragleave' events.
 //Different actions for different interactions.
 
-interact('.beaker1, .flask, .cylinder, .testtube').dropzone({
+interact('.beaker, .flask, .cylinder, .testtube, .cuvette').dropzone({
 	accept: '.thermometer, .balance, .microscope, .pipette, .spatula, .burner, .magnetic-stirrer',
 	overlap: 0.2,
 	ondragenter: function(e){
@@ -54,7 +54,7 @@ interact('.beaker1, .flask, .cylinder, .testtube').dropzone({
 
 
 interact('.remove').dropzone({
-	accept: '.beaker1, .flask, .cylinder, .testtube, .thermometer, .balance, .microscope, .pipette, .spatula, .burner, .magnetic-stirrer',
+	accept: '.beaker, .flask, .cylinder, .testtube, .thermometer, .balance, .microscope, .pipette, .spatula, .burner, .magnetic-stirrer, .cuvette, .spectrophotmeter',
 	overlap: 0.4,
 	ondragenter: function(e){
 		where=e.target
@@ -71,7 +71,7 @@ interact('.remove').dropzone({
 });
 
 interact('.removecross').dropzone({
-	accept: '.beaker1, .flask, .cylinder, .testtube, .thermometer, .balance, .microscope, .pipette, .spatula, .burner, .magnetic-stirrer',
+	accept: '.beaker, .flask, .cylinder, .testtube, .thermometer, .balance, .microscope, .pipette, .spatula, .burner, .magnetic-stirrer, .cuvette, .spectrophotmeter',
 	overlap: 0.2,
 	ondragenter: function(e){
 		where=e.target
@@ -81,5 +81,6 @@ interact('.removecross').dropzone({
 		$("#"+what.id).removeClass("draggable")
 		$(".remove")[0].style.backgroundColor="white"
 		where.style.display="none"
+		clearInterval(cool_id[what.id])
 	}
 })
