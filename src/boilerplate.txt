@@ -1,0 +1,23 @@
+function newobject_action(newobject_idx)
+{
+	//Adds a boundary when clicked
+	for(i=1; i<=idx_max; i++)
+	{
+		$("#"+i)[0].style.border="hidden";
+	}
+	$("#"+newobject_idx)[0].style.border="dotted";
+	$("#"+newobject_idx).css('border-width', '1px');
+
+	var clicked=$("#"+newobject_idx)[0]
+	//Edits the Help sidebar
+	$("#properties")[0].innerHTML="<ul><li>Property1: "+clicked.getAttribute("data-variable1")+"</li><li>Property2: "+clicked.getAttribute("data-variable2")+"</li></ul>"
+	$("#methods")[0].innerHTML="<ul><li>Write down instructions on how to use it</li><li>How it can interact with other objects</li><li>And everything the user can do with it</li></ul>"
+}
+
+function closeNewObject(newobject_idx){
+	$('#newobject_action'+newobject_idx)[0].style.display='none';
+}
+
+function newObjectNewMethod(newobject_idx){
+	//Your method here
+}

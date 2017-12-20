@@ -1,0 +1,5 @@
+$('#cat3opt5').click(function(){ //Object Name
+	$('#workspace')[0].innerHTML+='<div onclick="okay_action('+idx+')" class="draggable drag-drop okay" id='+idx+' style="height: 150px; position: relative; display: inline-block;" data-variable1="initial value" data-variable2="initial value"><img src="assets/okay.png" height="150px"><div class="menu" id="okay_action'+idx+'" style="z-index: 100; display: none; position: absolute; left: 100px; top: 10px"><div class="menu-header"><h6>Okay</h6></div><div class="menu-content"><ul><li id="method1'+idx+'">Method1</li><li id="method2'+idx+'">Method2</li><li id="close_okay'+idx+'" style="color: #F44336">Close</li></ul></div></div></div>'
+	idx++;
+	idx_max++;
+})
