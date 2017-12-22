@@ -6,15 +6,21 @@ const editLab=(answers)=>{
 	appendName(answers);
 	appendScriptTag(answers);
 	createActionFile(answers);
-	appendHTML(answers);
-	if(answers.type!="storage")
-		appendEnterRegular(answers);
-	else
+	if(answers.type=="storage")
+	{
 		appendEnterStorage(answers);
+		appendHTMLStorage(answers);
+	}
+	else
+	{
+		appendEnterRegular(answers);
+		appendHTMLRegular(answers);
+	}
 };
 
 const addImage=(answers)=>{
 	var imgPath=answers.image;
+	// console.log("File from: "+imgPath+" stored in ../lab/assets/"+answers.name.toLowerCase()+".png")
 	fs.createReadStream(imgPath).pipe(fs.createWriteStream('../lab/assets/'+answers.name.toLowerCase()+'.png'));
 }
 
@@ -43,8 +49,10 @@ const appendName=(answers)=>{
 	string='\n<p id="cat'+category+'opt'+opt+'">'+answers.name+'</p>'
 	data.splice(end+1, 0, string);
 	data=data.join("\n")
-	fs.writeFileSync('../lab/lab_test.html', data, 'utf8');
+	// console.log("lab.html is now: ", data)
+	fs.writeFileSync('../lab/lab.html', data, 'utf8');
 }
+
 
 const appendScriptTag=(answers)=>{
 	var data=fs.readFileSync('../lab/lab.html');
@@ -61,7 +69,8 @@ const appendScriptTag=(answers)=>{
 	string='\n<script type="text/javascript" src="actions/'+answers.name.toLowerCase()+'_action.js"></script>'
 	data.splice(end+1, 0, string);
 	data=data.join("\n")
-	fs.writeFileSync('../lab/lab_test.html', data, 'utf8');
+	// console.log("lab.html is now: ", data)
+	fs.writeFileSync('../lab/lab.html', data, 'utf8');
 }
 
 const createActionFile=(answers)=>{
@@ -70,10 +79,11 @@ const createActionFile=(answers)=>{
 	data=data.replace(/newobject/g, answers.name.toLowerCase());
 	data=data.replace(/newObject/g, answers.name.toLowerCase());
 	data=data.replace(/NewObject/g, answers.name);
+	// console.log("../lab/actions/"+answers.name.toLowerCase()+"_action.js is: "+data)
 	fs.writeFileSync("../lab/actions/"+answers.name.toLowerCase()+"_action.js", data, 'utf8');
 }
 
-const appendHTML=(answers)=>{
+const appendHTMLRegular=(answers)=>{
 	var data=fs.readFileSync('html_boiler.txt');
 	data=data.toString();
 
@@ -110,7 +120,24 @@ const appendHTML=(answers)=>{
 		string+=' data-'+key+'="'+value+'"';	
 	}
 	data=data.replace(res, string);
+	// console.log("../lab/add_object.js is now: "+data)
 	fs.appendFileSync('../lab/add_object.js', data, 'utf8');
+}
+
+const appendHTMLStorage=(answers)=>{
+	var string="";
+	var category=1;
+	var data2=fs.readFileSync('../lab/lab.html');
+	data2=data2.toString().split("\n");
+	var opt=1;
+	for(i in data2)
+		if(data2[i].indexOf('<p id="cat'+category)!==-1)
+			opt++;
+	
+	string="$('#cat"+category+"opt"+opt+"').click(function(){ //"+answers.name+"\n";
+	string+="addContainer('"+answers.name.toLowerCase()+"', '"+answers.maxvolume+"', '"+answers.solution+"', '"+answers.colour+"', '"+answers.density+"', '"+answers.other+"')\n})"
+	// console.log("../lab/add_object.js is now: "+string)
+	fs.appendFileSync('../lab/add_object.js', string, 'utf8');
 }
 
 const appendEnterRegular=(answers)=>{
@@ -124,6 +151,7 @@ const appendEnterRegular=(answers)=>{
 		}
 	}
 	data=data.join("\n")
+	// console.log("../lab/enter.js is now: "+data)
 	fs.writeFileSync("../lab/enter.js", data, 'utf8');
 }
 
@@ -145,6 +173,7 @@ const appendEnterStorage=(answers)=>{
 		}
 	}
 	data=data.join("\n");
+	// console.log("../lab/enter.js is now: "+data)
 	fs.writeFileSync("../lab/enter.js", data, 'utf8');
 }
 

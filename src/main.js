@@ -2,6 +2,7 @@ const inquirer = require('inquirer');
 const {
 	editLab
 }=require('./regularFlow');
+const {}=require('./storageFlow');
 
 console.log("Hey! Let's get started");
 
@@ -85,7 +86,7 @@ function storageQuestions(type)
 		{
 			type: 'input',
 			name: 'other',
-			message: "Any other data attributes you'd like to add? (Specify as '[{data-attribute1: default-value1}, {data-attribute2: default-value2}]')"
+			message: "Any other data attributes you'd like to add? (Specify as '[{'data-attribute1': default-value1}, {'data-attribute2': default-value2}]') (\033[0;31mPlease use double inverted commas for keys)"
 		}
 	]
 
@@ -117,7 +118,7 @@ function regularQuestions(type)
 		{
 			type: 'input',
 			name: 'other',
-			message: "Any other data attributes you'd like to add? (Specify as '[{data-attribute1: default-value1}, {data-attribute2: default-value2}]')",
+			message: "Any other data attributes you'd like to add? (Specify as '[{'data-attribute1': default-value1}, {'data-attribute2': default-value2}]') (\033[0;31mPlease use double inverted commas for keys)",
 			default: '[]'
 		}
 	]
