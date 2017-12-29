@@ -46,46 +46,53 @@ function closeLid(spectrophotometer_idx){
 	}
 	else
 	{
-		alert("Lid already close")
+		alert("Lid already closed")
 	}
 	closeSpectrophotometer(spectrophotometer_idx)
 }
 
 function insertCuvette(spectrophotometer_idx){
-	if(isOpen=="True")
-	{
+	var isOpen=$("#"+spectrophotometer_idx)[0].getAttribute("data-is-open")
+	if(isOpen=="True"){
 		var containers=$(".container1")
 		var numberOfContainers=containers.length
 		var options=[]
-		for(i=0; i<numberOfContainers; i++)
+		if(numberOfContainers==0)
 		{
-			var beakerComp=containers[i].getAttribute("data-components") //"A:10,B:20"
-			beakerComp=beakerComp.split(",") //["A:10", "B:20"]
-			for(j in beakerComp)
-			{
-				beakerComp[j]=beakerComp[j].split(":") //[["A", "10"], ["B", "20"]]
-			}
-			var ans=[]
-			for(j in beakerComp)
-			{
-				ans[beakerComp[j][0]]=parseFloat(beakerComp[j][1])
-			}
-			beakerComp=ans //["A":"10", "B": "20"]
-
-			if(Object.keys(beakerComp)!="None")
-			{
-				options[i]=[]
-				options[i][0]=containers[i].id
-				options[i][1]=Object.keys(beakerComp)
-			}
+			alert("No containers available");
 		}
-		optionsBar=$("#optionsBar")
-		optionsBar[0].innerHTML=""
-		for(i in options)
+		else
 		{
-			var idNo=options[i][0]
-			var containerType=$("#"+options[i][0])[0].classList[3]
-			optionsBar[0].innerHTML+="<li onclick='addInSpectrophotometer("+options[i][1]+")'>"+options[i][1]+" from "+containerType+" number "+idNo+"</li>"
+			for(i=0; i<numberOfContainers; i++)
+			{
+				var beakerComp=containers[i].getAttribute("data-components") //"A:10,B:20"
+				beakerComp=beakerComp.split(",") //["A:10", "B:20"]
+				for(j in beakerComp)
+				{
+					beakerComp[j]=beakerComp[j].split(":") //[["A", "10"], ["B", "20"]]
+				}
+				var ans=[]
+				for(j in beakerComp)
+				{
+					ans[beakerComp[j][0]]=parseFloat(beakerComp[j][1])
+				}
+				beakerComp=ans //["A":"10", "B": "20"]
+
+				if(Object.keys(beakerComp)!="None")
+				{
+					options[i]=[]
+					options[i][0]=containers[i].id
+					options[i][1]=Object.keys(beakerComp)
+				}
+			}
+			optionsBar=$("#optionsBar")
+			optionsBar[0].innerHTML=""
+			for(i in options)
+			{
+				var idNo=options[i][0]
+				var containerType=$("#"+options[i][0])[0].classList[3]
+				optionsBar[0].innerHTML+="<li onclick='addInSpectrophotometer("+options[i][1].toString()+")'>"+options[i][1]+" from "+containerType+" number "+idNo+"</li>"
+			}
 		}
 	}
 	else
