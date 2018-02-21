@@ -60,6 +60,7 @@ function burner_action(burner_idx){
 	close_burner(burner_idx);
 
 	//Edits the Help sidebar
+	clearInterval(changeProp);
 	$("#properties")[0].innerHTML="<ul><li>This has no properties</ul></li>"
 	$("#methods")[0].innerHTML="<ul><li>Drag this into a container to increase the contained solution's temperature</li></ul>"
 }

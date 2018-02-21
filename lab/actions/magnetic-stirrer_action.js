@@ -81,6 +81,7 @@ function magneticburner_action(magneticburner_idx){
 	close_magneticburner(magneticburner_idx);
 
 	//Edits the Help sidebar
+	clearInterval(changeProp);
 	$("#properties")[0].innerHTML="<ul><li>This has no properties</li></ul>"
 	$("#methods")[0].innerHTML="<ul><li>'Add Bead' adds the stirring bead into the solution</li><li>'Burn' will burn only if the stirring bead is present"
 }

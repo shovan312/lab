@@ -12,6 +12,7 @@ function thermometer_action(thermometer_idx)
 	var where=which[0].getAttribute('data-where')
 	
 	//Edits the Help sidebar
+	clearInterval(changeProp);
 	$("#properties")[0].innerHTML="This has no properties"
 	$("#methods")[0].innerHTML="Drag this into an object to see the object's temperature"
 	

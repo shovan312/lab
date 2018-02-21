@@ -36,6 +36,7 @@ function spatula_action(spatula_idx){
 	close_spatula(spatula_idx);
 
 	//Edits the help bar
+	clearInterval(changeProp);
 	$("#properties")[0].innerHTML="<ul><li>This contains: "+$('#'+spatula_idx)[0].getAttribute('data-contains')+"</li></ul>"
 	$("#methods")[0].innerHTML="<strong>Methods:</strong><ul><li>Drag the spatula here and there</li><li>Drag it into a container to see its actions</li><li>'Add' adds some "+$('#'+spatula_idx)[0].getAttribute('data-contains')+" into the solution in the container</li></ul>"
 }

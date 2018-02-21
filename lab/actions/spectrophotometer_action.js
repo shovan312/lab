@@ -12,6 +12,7 @@ function spectrophotometer_action(spectrophotometer_idx)
 
 	var clicked=$("#"+spectrophotometer_idx)[0]
 	//Edits the Help sidebar
+	clearInterval(changeProp);
 	$("#properties")[0].innerHTML="<ul><li>This object has no properties</li></ul>"
 	$("#methods")[0].innerHTML="<ul><li>Click on the Spectrophotometer to open up a menu.</li><li>'Open Lid' and 'Close Lid' open and close the lid respectively so that you can put the required solution in</li><li>'Insert' opens up a menu which shows you all possible solutions on table. Just choose one</li></ul>"
 
